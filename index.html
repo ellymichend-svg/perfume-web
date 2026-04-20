@@ -16,18 +16,40 @@
 <body class="text-gray-900 flex flex-col min-h-screen">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        
+        <div class="flex items-center gap-4">
+            <button onclick="toggleMenu()" class="p-2 hover:bg-gray-100 rounded-xl transition-all focus:outline-none group">
+                <div id="nav-icon" class="w-6 h-5 relative flex flex-col justify-between">
+                    <span class="w-full h-0.5 bg-black rounded-full transition-all duration-300"></span>
+                    <span class="w-full h-0.5 bg-black rounded-full transition-all duration-300"></span>
+                    <span class="w-full h-0.5 bg-black rounded-full transition-all duration-300"></span>
+                </div>
+            </button>
             <div class="text-xl font-bold tracking-tight">THE COLLECTION PERFUME</div>
-            <div class="hidden md:flex space-x-8 font-medium text-sm text-gray-500">
-                <a href="#" class="hover:text-black transition-colors">Templates</a>
-                <a href="#" class="hover:text-black transition-colors">Components</a>
-                <a href="#" class="hover:text-black transition-colors">Affiliate</a>
-            </div>
-            <a href="data.html" target="_blank" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all inline-block">
-                Get Started
-            </a>
         </div>
-    </nav>
+
+        <div class="hidden md:flex space-x-8 font-medium text-sm text-gray-500">
+            <a href="index.html" class="hover:text-black">Home</a>
+            <a href="about.html" class="hover:text-black">About Us</a>
+            <a href="#product-grid" class="hover:text-black">Product</a>
+        </div>
+
+        <a href="data.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all">
+            Get Started
+        </a>
+    </div>
+
+    <div id="mobile-menu" class="hidden overflow-hidden transition-all duration-500 ease-in-out bg-white border-b border-gray-100">
+        <div class="px-10 py-8 flex flex-col space-y-6">
+            <a href="about.html" class="text-2xl font-bold hover:text-gray-400 transition-colors">About Us</a>
+            <a href="#product-grid" onclick="toggleMenu()" class="text-2xl font-bold hover:text-gray-400 transition-colors">Our Product</a>
+            <div class="pt-4 border-t border-gray-50">
+                <p class="text-sm text-gray-400 font-medium">Exclusive Scent Collection 2026</p>
+            </div>
+        </div>
+    </div>
+</nav>
 
     <header class="max-w-7xl mx-auto px-6 pt-20 pb-12 text-center">
         <h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter mb-6">
@@ -46,24 +68,29 @@
     </div>
 
     <main class="max-w-7xl mx-auto px-6 pb-24 flex-grow">
-        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="product-card bento-card group cursor-pointer" data-category="Elegant">
-                <div class="bg-[#F3F4F6] rounded-[32px] p-2 overflow-hidden border border-transparent group-hover:border-gray-200 group-hover:shadow-2xl group-hover:shadow-gray-200/50 transition-all duration-500">
-                    <div class="aspect-[4/3] rounded-[24px] overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=800" alt="Gentleman Perfume" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="product-card bento-card group cursor-pointer" data-category="Elegant">
+            <div class="bg-[#F3F4F6] rounded-[32px] p-2 overflow-hidden border border-transparent group-hover:border-gray-200 group-hover:shadow-2xl group-hover:shadow-gray-200/50 transition-all duration-500">
+                <div class="aspect-[4/3] rounded-[24px] overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <div class="p-6 flex justify-between items-end">
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Elegant</p>
+                        <h3 class="text-xl font-bold tracking-tight">The Gentleman</h3>
                     </div>
-                    <div class="p-6 flex justify-between items-center">
-                        <div>
-                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Elegant</p>
-                            <h3 class="text-xl font-bold tracking-tight">The Gentleman</h3>
-                        </div>
-                        <div class="bg-white border border-gray-100 px-4 py-2 rounded-2xl shadow-sm">
-                            <span class="text-sm font-bold">$49</span>
-                        </div>
+                    <div class="text-right">
+                        <p class="text-sm font-bold mb-2">Rp. 89.000,00</p>
+                        <a href="data.html" class="inline-block bg-black text-white p-3 rounded-2xl hover:bg-gray-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
 
             <div class="product-card bento-card group cursor-pointer" data-category="Strong">
                 <div class="bg-[#F3F4F6] rounded-[32px] p-2 overflow-hidden border border-transparent group-hover:border-gray-200 group-hover:shadow-2xl group-hover:shadow-gray-200/50 transition-all duration-500">
@@ -75,8 +102,13 @@
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Strong</p>
                             <h3 class="text-xl font-bold tracking-tight">Aurora Sky</h3>
                         </div>
-                        <div class="bg-white border border-gray-100 px-4 py-2 rounded-2xl shadow-sm">
-                            <span class="text-sm font-bold">$29</span>
+                        <div class="text-right">
+                        <p class="text-sm font-bold mb-2">Rp. 83.000,00</p>
+                        <button class="bg-black text-white p-3 rounded-2xl hover:bg-gray-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -92,8 +124,13 @@
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Fresh</p>
                             <h3 class="text-xl font-bold tracking-tight">Minimalist Lake</h3>
                         </div>
-                        <div class="bg-white border border-gray-100 px-4 py-2 rounded-2xl shadow-sm">
-                            <span class="text-sm font-bold">Free</span>
+                        <div class="text-right">
+                        <p class="text-sm font-bold mb-2">Rp. 90.000,00</p>
+                        <button class="bg-black text-white p-3 rounded-2xl hover:bg-gray-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -109,8 +146,13 @@
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Elegant</p>
                             <h3 class="text-xl font-bold tracking-tight">Velvet Rose</h3>
                         </div>
-                        <div class="bg-white border border-gray-100 px-4 py-2 rounded-2xl shadow-sm">
-                            <span class="text-sm font-bold">$55</span>
+                        <div class="text-right">
+                        <p class="text-sm font-bold mb-2">Rp. 89.000,00</p>
+                        <a href="data.html" class="inline-block bg-black text-white p-3 rounded-2xl hover:bg-gray-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -126,8 +168,13 @@
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Strong</p>
                             <h3 class="text-xl font-bold tracking-tight">Midnight Oak</h3>
                         </div>
-                        <div class="bg-white border border-gray-100 px-4 py-2 rounded-2xl shadow-sm">
-                            <span class="text-sm font-bold">$35</span>
+                        <div class="text-right">
+                        <p class="text-sm font-bold mb-2">Rp. 89.000,00</p>
+                        <a href="data.html" class="inline-block bg-black text-white p-3 rounded-2xl hover:bg-gray-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -143,8 +190,13 @@
                             <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-1">Fresh</p>
                             <h3 class="text-xl font-bold tracking-tight">Citrus Breeze</h3>
                         </div>
-                        <div class="bg-white border border-gray-100 px-4 py-2 rounded-2xl shadow-sm">
-                            <span class="text-sm font-bold">$19</span>
+                        <div class="text-right">
+                        <p class="text-sm font-bold mb-2">Rp. 89.000,00</p>
+                        <a href="data.html" class="inline-block bg-black text-white p-3 rounded-2xl hover:bg-gray-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -185,6 +237,31 @@
                 }
             });
         }
+    </script>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('nav-icon');
+    
+    // Toggle class untuk animasi ikon X
+    icon.classList.toggle('open');
+
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.style.maxHeight = '0px';
+        // Animasi slide down
+        setTimeout(() => {
+            menu.style.maxHeight = '300px';
+        }, 10);
+    } else {
+        // Animasi slide up
+        menu.style.maxHeight = '0px';
+        setTimeout(() => {
+            menu.classList.add('hidden');
+        }, 500);
+    }
+}
     </script>
 
 </body>
